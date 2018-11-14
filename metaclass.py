@@ -34,8 +34,6 @@ class A(E):
         print "AAAAAAAAAAAAA"
         #print "开始执行 A的 init"
         #print args
-        pass
-        
         #super(A, self).__init__(**kw)
 
     def __call__(cls, *args, **kwargs):
@@ -62,16 +60,10 @@ b = B(name='111')
 #print C.__init__ is B.__init__
 
 
-
-
-
-''' 
+'''
 metaclass 在 django 的 orm 中用的比较多。
 他的调用顺序是，在创建类的时候就加载，即使不 创建任何对象。
 创建对象的时候，会去调用  metaclass 中的 __call__ 方法，如果次方法不存在，则调用 指向 metaclass 类 自己的 父类的 __init__ 方法。
 
 详情：  https://eli.thegreenplace.net/2011/08/14/python-metaclasses-by-example/
-
-
 '''
-
