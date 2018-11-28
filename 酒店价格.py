@@ -15,17 +15,15 @@ flag = s2[1]
 r = [1, 1,s2[2]]
 res = []
 i = 1
-
+pre = 1
 while i < 1000:
-    if s2[i] == flag:
-        i += 1
-        r[1] = r[1] + 1
-    else:
-        if r[2] != 0:
-            r[1] = r[1] - 1
-            res.append(str(r))
+    if s2[i] != 0 and s2[i] != flag:
+        r[0] = pre
+        r[1] = i-1
+        r[2] = flag
         flag = s2[i]
-        r = [i, i+1, flag]
-        i = i + 1
+        pre = i
+        res.append(str(r))
+    i += 1
 
 print ','.join(res)
