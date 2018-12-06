@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+    #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import random
@@ -10,10 +10,11 @@ def getRandom(start=-999, end=999, count=10):
 
 def compare(func):
     def wrap(arr):
-        arr2 = copy.deepcopy(arr)
-        arr2 = sorted(arr2)
-        print(arr2)
-        func(arr)
-        print(arr)
-        return "sucess" if arr == arr2 else "failed"
+        for _ in range(100):
+            arr2 = copy.deepcopy(arr)
+            arr2 = sorted(arr2)
+            print(arr2)
+            func(arr)
+            print(arr)
+            return "sucess" if arr == arr2 else "failed"
     return wrap
