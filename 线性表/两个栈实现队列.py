@@ -1,35 +1,24 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# -*- coding:utf-8 -*-
 
-class stack2queue(object):
-
+class Solution:
     def __init__(self):
-        self.s1 = []
-        self.s2 = []
+        self.stack1 = []
+        self.stack2 = []
 
-    def put(self, val):
-        self.s1.append(val)
+    def push(self, node):
+        self.stack1.append(node)
 
-    def get(self):
+    def pop(self):
 
-        while len(self.s1) > 1:
-            tmp = self.s1.pop()
-            self.s2.append(tmp)
-        res = self.s1.pop()
-        while len(self.s2) > 0:
-            self.s1.append(self.s2.pop())
+        if not self.stack1:
+            return None
+        while len(self.stack1) > 1:
+            self.stack2.append(self.stack1.pop())
+
+        res = self.stack1.pop()
+
+        while self.stack2:
+            self.stack1.append(self.stack2.pop())
+
         return res
-
-
-
-if __name__ == "__main__":
-    qu = stack2queue()
-    qu.put(1)
-    print(qu.get())
-    qu.put(2)
-    qu.put(3)
-    print(qu.get())
-    qu.put(4)
-    qu.put(5)
-    print(qu.get())
-    print(qu.get())
