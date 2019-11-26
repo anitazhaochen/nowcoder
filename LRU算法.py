@@ -20,7 +20,7 @@ class LRUCache(OrderedDict):
 
     def set(self, key, value):
         if self.cache.has_key(key):
-            value = self.cache.pop(key)
+            self.cache.pop(key)
             self.cache[key] = value
         else:
             if len(self.cache) == self.capacity:
